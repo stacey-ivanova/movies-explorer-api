@@ -1,74 +1,75 @@
 const mongoose = require('mongoose');
 const val = require('validator');
+const { messages } = require('../utils/constants');
 
 const movieSchema = new mongoose.Schema({
-country: {
+  country: {
     type: String,
     required: true,
-},
-director: {
+  },
+  director: {
     type: String,
     required: true,
-},
-duration: {
+  },
+  duration: {
     type: Number,
     required: true,
-},
-year: {
+  },
+  year: {
     type: String,
     required: true,
-},
-description: {
+  },
+  description: {
     type: String,
     required: true,
-}, 
-image: {
-    type: String,
-    required: true,
-    validate: {
-        validator(v) {
-          return val.isURL(v);
-        },
-        message: 'Некорректная ссылка',
-      },
-},
-trailerLink: {
+  },
+  image: {
     type: String,
     required: true,
     validate: {
-        validator(v) {
-          return val.isURL(v);
-        },
-        message: 'Некорректная ссылка',
+      validator(v) {
+        return val.isURL(v);
       },
-},
-thumbnail: {
+      message: messages[401].url,
+    },
+  },
+  trailerLink: {
     type: String,
     required: true,
     validate: {
-        validator(v) {
-          return val.isURL(v);
-        },
-        message: 'Некорректная ссылка',
+      validator(v) {
+        return val.isURL(v);
       },
-}, 
-owner: {
+      message: messages[401].url,
+    },
+  },
+  thumbnail: {
+    type: String,
+    required: true,
+    validate: {
+      validator(v) {
+        return val.isURL(v);
+      },
+      message: messages[401].url,
+    },
+  },
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
     required: true,
-}, 
-movieId: {
+  },
+  movieId: {
     type: Number,
     required: true,
-}, 
-nameRU: {
+  },
+  nameRU: {
     type: String,
     required: true,
-}, 
-nameEN: {
+  },
+  nameEN: {
     type: String,
     required: true,
-}, 
+  },
 });
 
 module.exports = mongoose.model('movie', movieSchema);

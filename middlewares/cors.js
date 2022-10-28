@@ -1,8 +1,8 @@
 const allowedCors = [
-  'https://mesto.stacey.nomoredomains.icu',
-  'http://mesto.stacey.nomoredomains.icu',
-  'https://api.mesto.stacey.nomoredomains.icu',
-  'http://api.mesto.stacey.nomoredomains.icu',
+  'https://movie.stacey.nomoredomains.icu',
+  'http://movie.stacey.nomoredomains.icu',
+  'https://api.movie.stacey.nomoredomains.icu',
+  'http://api.movie.stacey.nomoredomains.icu',
   'http://localhost:3000',
 ];
 

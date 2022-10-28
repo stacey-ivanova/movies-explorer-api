@@ -8,6 +8,10 @@
           "_id"
         ]
       }
+    ],
+    "func-names": [
+      "error",
+      "never"
     ]
   }
 }

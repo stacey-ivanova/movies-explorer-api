@@ -53,11 +53,11 @@ module.exports.findMovies = (req, res, next) => {
 };
 
 module.exports.deleteMovie = (req, res, next) => {
-  Movie.findById(req.params.movieId).populate('owner').then((movie) => {
+  Movie.findById(req.params.movieId).then((movie) => {
     if (!movie) {
       throw new NotFoundError(messages[404].movie);
     }
-    if (movie.owner._id.toString() !== req.user._id.toString()) {
+    if (movie.owner.toString() !== req.user._id) {
       throw new ForbiddenError(messages[403].movie);
     }
     Movie.deleteOne(movie)

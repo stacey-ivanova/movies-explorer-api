@@ -1,9 +1,5 @@
 const usersRouter = require('express').Router();
-const express = require('express');
-const { application } = require('express');
-const {
-  getUser, updateUser, createUser, loginUser,
-} = require('../controllers/users');
+const { getUser, updateUser } = require('../controllers/users');
 const { validationProfileUpdate } = require('../middlewares/validation');
 
 usersRouter.get('/me', getUser);

@@ -11,7 +11,6 @@ const { UnauthorizedError } = require('../errors/UnauthorizedError');
 const { ConflictError } = require('../errors/ConflictError');
 
 module.exports.getUser = (req, res, next) => {
-  // console.log(req.user)
   User.findById(req.user._id)
     .then((user) => {
       if (!user) {
@@ -55,7 +54,6 @@ module.exports.createUser = (req, res, next) => {
       password: hash,
     }))
     .then((user) => {
-      // console.log(user);
       res.send({
         name: user.name,
         email: user.email,
@@ -73,7 +71,6 @@ module.exports.createUser = (req, res, next) => {
 
 module.exports.loginUser = (req, res, next) => {
   const { email, password } = req.body;
-  console.log(req.body)
   return User.findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-password', { expiresIn: '7d' });

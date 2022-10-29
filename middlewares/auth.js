@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
       next(new UnauthorizedError(messages[401].token));
     } else next(err);
   }
-console.log(payload)
+
   req.user = payload;
 
   next();

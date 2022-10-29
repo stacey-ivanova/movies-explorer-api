@@ -42,6 +42,6 @@ module.exports.validationProfileUpdate = celebrate({
 
 module.exports.validationMovieId = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.number(),
+    movieId: Joi.string().hex().length(24),
   }),
 });
